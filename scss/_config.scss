@@ -6,7 +6,7 @@ $home-image: url(/dist/images/azamat-zhanisov-wO4gtmdlW5Y-unsplash.jpg);
 $background-opacity: 0.5;
 
 @mixin easeOut{
-      transition: all 1s ease-out;
+      transition: all 0.3s ease-out;
 }
 
 @mixin background {
