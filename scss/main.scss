@@ -1,0 +1,254 @@
+@import 'config';
+@import 'menu';
+
+*{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+
+}
+body{
+      @include background;
+      background-color: $primary-color;
+      color: setTextColor($primary-color);
+      margin: 0;
+      height: 100%;
+      font-family: 'Rubik', sans-serif;
+      line-height: 1.5;
+}
+
+//headings
+
+h1,h2,h3{
+      margin: 0;
+      font-weight: 400;
+      &.large-heading{
+            font-size: 6rem;
+      }
+      &.small-heading{
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding: 0.2rem 1rem;
+            background: rgba(lighten($primary-color, 2), 0.5);
+      }
+      &.signature{
+            color: #FFF;
+            font-size: 2rem;
+            font-weight: 400;
+            font-family:'Herr Von Muellerhoff', cursive;
+            text-align: center;
+      }
+}
+
+a{
+      text-decoration: none;
+      color: #FFF;
+}
+
+header{
+      position: fixed;
+      z-index: 2;
+      width: 100%;
+}
+
+.text-color__secondary{
+      color: $secondary-color;
+      //setTextColor($secondary-color);
+}
+.text-opacity{
+      opacity: 0.5;
+      lighting-color: #FFF;
+}
+main{
+      padding: 4rem;
+      //height: 100%;
+      min-height: calc(100vh - $footer-height); //60px is the width of my footer
+
+      .icons{
+            margin-top: 1rem;
+
+            a{
+                  padding: 0.4rem;
+
+                  &:hover{
+                        color: $secondary-color;
+                        @include easeOut();
+                  }
+            }
+      }
+      &#home{
+            overflow: hidden;
+            h1{
+                  margin-top: 20vh;
+            }
+      }
+}
+
+
+
+//Styling the About.html page:
+/*
+.about-info{
+      display: grid;
+      grid-template-areas: 
+            "bioBranding bio bio"
+            "jobs jobs jobs";
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      grid-auto-flow: row;
+      justify-content: center;
+      .branding-img{
+            width: 250px;
+            height: 250px;
+            grid-area: bioBranding;
+            margin: auto;
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+      }
+      
+      .bio{
+            grid-area: bio;
+            font-size: 1.5rem;
+      }
+      .job{
+            grid-area: jobs;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            background: lighten($primary-color, $amount: 5);
+            padding: 0.5rem;
+            border-bottom: $secondary-color solid 3px;
+      }
+  
+}*/
+.about-info{
+      display: grid;
+      grid-template-areas: 
+            "content-header__bio"
+            "jobs";
+      gap: 2rem;
+      grid-auto-flow: row;
+      justify-content: center;
+
+      .content-header__bio{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            grid-auto-rows: 1fr;
+            grid-auto-columns: 1fr;
+            
+      }
+      .branding-img{
+            width: 250px;
+            height: 250px;
+            background: url('/dist/images/portrait-far.jpg');
+            background-position: center center;
+            background-attachment: local;
+            background-size: cover;
+            //grid-area: bioBranding;
+            margin: auto;
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+      }
+
+      .bio{
+            //grid-area: bio;
+            font-size: 1.5rem;
+      }
+      .jobs{
+            grid-area: jobs;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+
+            .job{
+                  background: lighten($primary-color, $amount: 5);
+                  padding: 0.5rem;
+                  border-bottom: $secondary-color solid 3px;
+            }
+      }
+  
+}
+
+//Styling Projects 
+
+.projects{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+      justify-content: center;
+      align-items: center;
+      img {
+            width: 100%;
+            border-left: #FFF 3px solid;
+            &:hover{
+                  opacity: 0.6;
+                  border-left: 3px solid $secondary-color;
+                  @include easeOut;
+            }
+      }
+}
+
+//Contact styling:
+
+.boxes{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-top: 1rem;
+
+      div{
+            font-size: 2rem;
+            border: 3px #FFF solid;
+            padding: 1.5rem 2.5rem;
+            margin-bottom: 3rem;
+            @include easeOut;
+
+            &:hover{
+                  padding: 0.5rem 1.5rem;
+                  background: $secondary-color;
+                  color: setTextColor($primary-color);
+                  
+                  span{
+                        color: setTextColor($secondary-color);
+                  }
+            }
+      }
+}
+
+//Btn styles
+
+.btn{
+      display: block;
+      padding: 0.5rem 1rem;
+      border: 0;
+      margin-bottom: 0.3rem;
+
+      &:hover{
+            background: $secondary-color;
+            color: setTextColor($primary-color);
+            height: 2.8rem;
+      }
+}
+.btn-dark{
+      @extend .btn;
+      background: darken($primary-color, $amount: 50);
+      color: #FFF;
+}
+
+.btn-light{
+      @extend .btn;
+      background: lighten($primary-color, $amount: 50);
+      color: #333;
+}
+#main-footer{
+      padding: 1rem;
+      text-align: center;
+      background: darken($primary-color, $amount: 9);
+      color: setTextColor($primary-color);
+      height: 60px;
+}
+
+@import 'mobile';

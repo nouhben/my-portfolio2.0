@@ -1,0 +1,346 @@
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  transition: all 1s ease-out; }
+  .menu-btn .menu-btn__line {
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: #FFF;
+    transition: all 1s ease-out; }
+  .menu-btn.close {
+    transform: rotate(180deg); }
+    .menu-btn.close .menu-btn__line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px); }
+    .menu-btn.close .menu-btn__line:nth-child(2) {
+      opacity: 0; }
+    .menu-btn.close .menu-btn__line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px); }
+
+.site-menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  visibility: hidden; }
+  .site-menu.show {
+    visibility: visible; }
+  .site-menu__section--links, .site-menu__section--branding {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden; }
+  .site-menu__section--links {
+    margin: 0;
+    padding: 0;
+    background: rgba(51, 26, 26, 0.9);
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    transition: all 1s ease-out; }
+    .site-menu__section--links.show {
+      transform: translate3d(0, 0, 0); }
+  .site-menu__section--branding {
+    background: rgba(68, 34, 34, 0.9);
+    transform: translate3d(0, -100%, 0);
+    transition: all 1s ease-out; }
+    .site-menu__section--branding.show {
+      transform: translate3d(0, 0, 0); }
+    .site-menu__section--branding .portrait {
+      width: 15rem;
+      height: 16rem;
+      background: url("/dist/images/portrait-far.jpg");
+      transform: scale(0.95);
+      background-size: cover;
+      border: solid 3px #EECe1a;
+      border-radius: 50%; }
+  .site-menu .site-menu__item {
+    transform: translate3d(600px, 0, 0);
+    transition: all 1s ease-out; }
+    .site-menu .site-menu__item.show {
+      transform: translate3d(0, 0, 0); }
+    .site-menu .site-menu__item.current > a {
+      color: #EECe1a; }
+    .site-menu .site-menu__item .site-menu__link {
+      display: inline-block;
+      position: relative;
+      font-size: 2rem;
+      text-transform: uppercase;
+      padding: 1rem 0;
+      font-weight: 300;
+      text-decoration: none;
+      color: #FFF;
+      transition: all 1s ease-out; }
+      .site-menu .site-menu__item .site-menu__link:hover {
+        color: #EECe1a;
+        transition: all 1s ease-out; }
+  .site-menu .site-menu__item:nth-child(1) {
+    transition-delay: 0.1s; }
+  .site-menu .site-menu__item:nth-child(2) {
+    transition-delay: 0.2s; }
+  .site-menu .site-menu__item:nth-child(3) {
+    transition-delay: 0.3s; }
+  .site-menu .site-menu__item:nth-child(4) {
+    transition-delay: 0.4s; }
+  .site-menu .site-menu__item:nth-child(5) {
+    transition-delay: 0.5s; }
+  .site-menu .site-menu__item:nth-child(6) {
+    transition-delay: 0.6s; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #422;
+  color: #FFF;
+  margin: 0;
+  height: 100%;
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5; }
+  body#bg-image {
+    background: url(/dist/images/azamat-zhanisov-wO4gtmdlW5Y-unsplash.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% auto; }
+    body#bg-image:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(68, 34, 34, 0.5);
+      z-index: -1; }
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400; }
+  h1.large-heading, h2.large-heading, h3.large-heading {
+    font-size: 6rem; }
+  h1.small-heading, h2.small-heading, h3.small-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(75, 37, 37, 0.5); }
+  h1.signature, h2.signature, h3.signature {
+    color: #FFF;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Herr Von Muellerhoff', cursive;
+    text-align: center; }
+
+a {
+  text-decoration: none;
+  color: #FFF; }
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%; }
+
+.text-color__secondary {
+  color: #EECe1a; }
+
+.text-opacity {
+  opacity: 0.5;
+  lighting-color: #FFF; }
+
+main {
+  padding: 4rem;
+  min-height: calc(100vh - $footer-height); }
+  main .icons {
+    margin-top: 1rem; }
+    main .icons a {
+      padding: 0.4rem; }
+      main .icons a:hover {
+        color: #EECe1a;
+        transition: all 1s ease-out; }
+  main#home {
+    overflow: hidden; }
+    main#home h1 {
+      margin-top: 20vh; }
+
+/*
+.about-info{
+      display: grid;
+      grid-template-areas: 
+            "bioBranding bio bio"
+            "jobs jobs jobs";
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      grid-auto-flow: row;
+      justify-content: center;
+      .branding-img{
+            width: 250px;
+            height: 250px;
+            grid-area: bioBranding;
+            margin: auto;
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+      }
+      
+      .bio{
+            grid-area: bio;
+            font-size: 1.5rem;
+      }
+      .job{
+            grid-area: jobs;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            background: lighten($primary-color, $amount: 5);
+            padding: 0.5rem;
+            border-bottom: $secondary-color solid 3px;
+      }
+  
+}*/
+.about-info {
+  display: grid;
+  grid-template-areas: "content-header__bio" "jobs";
+  gap: 2rem;
+  grid-auto-flow: row;
+  justify-content: center; }
+  .about-info .content-header__bio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr; }
+  .about-info .branding-img {
+    width: 250px;
+    height: 250px;
+    background: url("/dist/images/portrait-far.jpg");
+    background-position: center center;
+    background-attachment: local;
+    background-size: cover;
+    margin: auto;
+    border-radius: 50%;
+    border: solid 3px #EECe1a; }
+  .about-info .bio {
+    font-size: 1.5rem; }
+  .about-info .jobs {
+    grid-area: jobs;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem; }
+    .about-info .jobs .job {
+      background: #552b2b;
+      padding: 0.5rem;
+      border-bottom: #EECe1a solid 3px; }
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  justify-content: center;
+  align-items: center; }
+  .projects img {
+    width: 100%;
+    border-left: #FFF 3px solid; }
+    .projects img:hover {
+      opacity: 0.6;
+      border-left: 3px solid #EECe1a;
+      transition: all 1s ease-out; }
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem; }
+  .boxes div {
+    font-size: 2rem;
+    border: 3px #FFF solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    transition: all 1s ease-out; }
+    .boxes div:hover {
+      padding: 0.5rem 1.5rem;
+      background: #EECe1a;
+      color: #FFF; }
+      .boxes div:hover span {
+        color: #000; }
+
+.btn, .btn-dark, .btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  .btn:hover, .btn-dark:hover, .btn-light:hover {
+    background: #EECe1a;
+    color: #FFF;
+    height: 2.8rem; }
+
+.btn-dark {
+  background: black;
+  color: #FFF; }
+
+.btn-light {
+  background: #cc9999;
+  color: #333; }
+
+#main-footer {
+  padding: 1rem;
+  text-align: center;
+  background: #251313;
+  color: #FFF;
+  height: 60px; }
+
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center; }
+    main .large-heading {
+      line-height: 1;
+      margin-bottom: 1rem; }
+  ul.site-menu__section--links,
+  div.site-menu__section--branding {
+    float: none;
+    width: 100%;
+    min-height: 0; }
+    ul.site-menu__section--links.show,
+    div.site-menu__section--branding.show {
+      transform: translate3d(0, 0, 0); }
+  .site-menu__section--links {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px; }
+  .site-menu__section--branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0); }
+    .site-menu__section--branding .portrait {
+      background: url("/dist/images/portrait-close.jpg");
+      width: 150px;
+      height: 150px;
+      transform: scale(0.75); }
+  /*.about-info{
+            grid-template-areas: 
+                  "bioBranding"
+                  "bio"
+                  "job1"
+                  "job2"
+                  "job3";
+                  grid-template-columns: 1fr;
+                  grid-auto-flow: row;
+
+      }*/
+  /*.content-header__bio{
+            grid-template-areas: 
+                  "bioBranding"
+                  "bio";
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+      }*/ }
+
+@media screen and (max-width: 500px) {
+  main#home h1 {
+    margin-top: 10vh; } }
